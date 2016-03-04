@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt" data-ng-app="cadastroPessoaApp">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Cadastro de Pessoas</title>
+	
+	<base href="/" />
+	
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" />
+	
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script type="text/javascript" src="webjars/jquery/2.2.1/jquery.min.js"></script>	
+	<script type="text/javascript" src="webjars/angularjs/1.5.0/angular.min.js"></script>
+	<script type="text/javascript" src="webjars/angularjs/1.5.0/angular-route.min.js"></script>
+	<script type="text/javascript" src="webjars/angularjs/1.5.0/angular-resource.min.js"></script>
+	<script type="text/javascript" src="webjars/angularjs/1.5.0/angular-cookies.min.js"></script>	
+	<script type="text/javascript" src="js/shared/jquery.i18n.properties-min-1.0.9.js"></script>
+</head>
+
+<body data-ng-controller="IndexController">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">				
+				<a class="navbar-brand" href="#"><msg key="nomeApp"></msg></a>
+			</div>
+			
+			<div class="navbar-collapse collapse">				
+				<ul class="nav navbar-nav">
+				  <li><a href="/estado"><msg key="estado" /></a></li>
+				  <li><a href="/cidade"><msg key="cidade" /></a></li>
+				  <li><a href="/pessoa"><msg key="pessoa" /></a></li>
+				</ul>
+			</div>
+
+		</div>		
+	</div>
+	<div class="container page" style="height: 700px">	
+		<div class="sw4_notify">
+		  <alert ng-repeat="alert in alerts" type="alert.type" class="alert alert-{{alert.type}}">
+		  	{{ alert.msg }} 
+		  	<button type="button" class="close" data-ng-click="closeAlert($index)">
+		  	<span aria-hidden="true">&times;</span>
+		  	</button>
+		  </alert>
+		</div>	
+		
+		<ng-view></ng-view>
+		
+	</div>
+	<footer>
+		<div class="container">
+			<div class="toolbar">
+				<div class=" btn-group btn-group-sm">
+					<a data-ng-class="activeWhen(language() == 'pt')"
+						class="btn btn-default" data-ng-click="setLanguage('pt')">Português</a> 
+					<a data-ng-class="activeWhen(language() == 'en')" class="btn btn-default"
+						data-ng-click="setLanguage('en')">English </a>
+				</div>
+			</div>
+			<div class="row">
+				
+			</div>
+		</div>
+	</footer>	
+	
+	<script type="text/javascript" src="js/services/alertService.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/filters/appFilters.js"></script>
+	<script type="text/javascript" src="js/directives/mask.js"></script>
+	<script type="text/javascript" src="js/directives/datetimepickerDirective.js"></script>
+	<script type="text/javascript" src="js/directives/i18nDirective.js"></script>
+	<script type="text/javascript" src="js/directives/validarCpf.js"></script>
+	<script type="text/javascript" src="js/directives/validarEmail.js"></script>
+	<script type="text/javascript" src="js/services/i18nService.js"></script>
+	<script type="text/javascript" src="js/services/estadoService.js"></script>
+	<script type="text/javascript" src="js/services/cidadeService.js"></script>
+	<script type="text/javascript" src="js/services/pessoaService.js"></script>
+	<script type="text/javascript" src="js/controllers/indexController.js"></script>
+	<script type="text/javascript" src="js/controllers/estadoController.js"></script>
+	<script type="text/javascript" src="js/controllers/cidadeController.js"></script>
+	<script type="text/javascript" src="js/controllers/pessoaController.js"></script>
+</body>
+
+</html>
