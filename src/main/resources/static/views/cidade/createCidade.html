@@ -1,0 +1,39 @@
+<div class="row" style="margin-top: 25px;">
+    <div class="col-md-offset-3 col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><msg key="cadastroCidade"></msg></h3>
+            </div>
+            <div class="panel-body">
+                <form class="form form-horizontal" data-ng-submit="salvarCidade(cidade)">
+                	<input type="hidden" id="ideCidade" data-ng-model="cidade.ideCidade" value="{{cidade.ideCidade}}">
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="dscCidade">*<msg
+                                key="dscCidade"></msg></label>
+                        <div class="col-md-6">
+                            <input class="form-control" id="dscCidade"  data-ng-required="true" data-ng-model="cidade.dscCidade" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="ideEstado">*<msg
+                                key="estado"></msg></label>
+                        <div class="col-md-3">
+		                    <select class="form-control" id="ideEstado" 
+		                    		data-ng-required="true"
+		                    		data-ng-options="e.sglEstado for e in todosEstados track by e.ideEstado" 
+		                    		data-ng-model="cidade.ideEstado">
+								<option value=""> </option>
+							</select>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <div class="col-md-offset-6 col-md-7">
+                            <button type="submit" class="btn btn-primary col-md-offset-1 col-md-4" >  <msg key="salvar"></msg></button>
+                        	<button type="button" class="btn btn-secundary col-md-offset-1 col-md-4"  data-ng-click="redirectTo('/cidade');">  <msg key="cancelar"></msg></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
